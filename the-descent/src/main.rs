@@ -1,25 +1,16 @@
-use std::io;
-
-fn read_montain_data(input: &io::Stdin) -> i32 {
-    let mut input_line = String::new();
-    input.read_line(&mut input_line).unwrap();
-
-    input_line.trim().parse::<i32>().unwrap()
-}
+use std::io::{self, BufRead};
 
 fn main() {
     loop {
-        let mut index = 0;
-        let mut max_height = 0;
-
-        for i in 0..8 as usize {
-            let height = read_montain_data(&io::stdin());
-            if height > max_height {
-                index = i;
-                max_height = height;
-            }
-        }
-
-        println!("{}", index);
+        let reader = io::BufReader::new(io::stdin());
+        let max_height_idx = reader
+            .lines()
+            .map(|res| res.unwrap().trim().parse::<i32>().unwrap())
+            .take(8)
+            .enumerate()
+            .max_by_key(|&(_, height)| height)
+            .unwrap()
+            .0;
+        println!("{}", max_height_idx);
     }
 }
