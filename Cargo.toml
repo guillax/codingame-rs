@@ -3,4 +3,5 @@
 members = [
     "onboarding",
     "the-descent",
+    "temperatures",
 ]

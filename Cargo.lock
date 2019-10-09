@@ -5,6 +5,10 @@ name = "onboarding"
 version = "0.1.0"
 
 [[package]]
+name = "temperatures"
+version = "0.1.0"
+
+[[package]]
 name = "the-descent"
 version = "0.1.0"
 
